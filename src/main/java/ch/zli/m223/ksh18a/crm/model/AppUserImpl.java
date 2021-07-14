@@ -17,7 +17,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-@Entity(name = "User")
+@Entity(name = "AppUser")
 @SuppressWarnings("serial")
 public class AppUserImpl implements AppUser {
 
@@ -28,8 +28,7 @@ public class AppUserImpl implements AppUser {
 	private String userName;
 	private String passwordHash;
 	
-	@ElementCollection(fetch=FetchType.EAGER)
-	// For simple types only, no Role objects allowed
+	@ElementCollection(fetch=FetchType.EAGER) // For simple types only
 	private Set<String> roles;
 	
 	protected AppUserImpl() {} // For JPA only
